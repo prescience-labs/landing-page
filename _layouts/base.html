@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="{{ site.description }}">
+
+  {% if page.title and page.title != "" and page.title != null %}
+  <title>{{ page.title }} {{ site.separator }} {{ site.title }}</title>
+  {% else %}
+  <title>{{ site.title }} {{ site.separator }} {{ site.description }}</title>
+  {% endif %}
+
+  {% include head-css.html %}
+  {% seo title=false %}
+  {% include google-analytics.html %}
+</head>
+<body>
+  {{ content }}
+  {% include footer-scripts.html %}
+</body>
+</html>

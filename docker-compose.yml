@@ -3,7 +3,7 @@ version: '3'
 services:
   site:
     image: jekyll/jekyll:stable
-    command: jekyll serve --watch --force_polling --verbose
+    command: bash -c "bundle install && bundle exec jekyll serve --watch --force_polling --verbose"
     ports:
       - 4000:4000
     volumes:
