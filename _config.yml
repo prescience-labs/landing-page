@@ -8,7 +8,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /blog/:title
 separator: "|"
 google_analytics_id: UA-124570982-1
-default_image: /assets/images/logo.png
+default_image: /assets/images/logo-white.png
 
 defaults:
   -
@@ -16,7 +16,7 @@ defaults:
       path: ""
     values:
       layout: "default"
-      image: "/assets/images/logo.png" # Default site image for Open Graph
+      image: "/assets/images/logo-white.png" # Default site image for Open Graph
   -
     scope:
       path: "assets/images"
