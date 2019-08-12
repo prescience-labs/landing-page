@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+http://cocky-shockley-233439.netlify.com/* http://www.dataintel.ai/:splat 301!
