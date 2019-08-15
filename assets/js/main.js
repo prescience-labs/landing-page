@@ -175,13 +175,27 @@ $(document).ready(function($) {
   --------------------------------------
 */
 document.getElementById('login-form').addEventListener('submit', event => {
-  event.preventDefault();
-
   const email = event.target[0].value;
   const password = event.target[1].value;
-  const shouldRemember = event.target[2].checked;
 
-  console.log('email :', email);
-  console.log('password :', password);
-  console.log('shouldRemember :', shouldRemember);
+  const body = Object.assign(
+    {},
+    {
+      email,
+      password,
+    },
+  );
+
+  axios
+    .post('https://prescience-mailer.herokuapp.com/auth/login', body)
+    .then(function(response) {
+      if (response.data.token) {
+        console.log('vamos a la gloriaaaaaaaaa :', response.data.token);
+      }
+    })
+    .catch(function(error) {
+      console.log('error---- :', error);
+    });
+
+  event.preventDefault();
 });
