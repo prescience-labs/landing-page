@@ -365,7 +365,7 @@ Navigation
   padding: 0 30px 0 0;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-default .navbar-nav>li>a {
   color: #fff;
   padding: 5px 5px 4px;
   font-size: 16px;
@@ -374,7 +374,7 @@ Navigation
   font-family: 'Hk_Groteskregular', sans-serif;
 }
 
-.navbar-default .navbar-right > li + li {
+.navbar-default .navbar-right>li+li {
   margin-left: 20px;
 }
 
@@ -399,28 +399,28 @@ Navigation
   background-color: transparent;
 }
 
-.navbar-default .navbar-nav > .active > a {
+.navbar-default .navbar-nav>.active>a {
   background-color: transparent !important;
   color: #eeeeeeb3;
 }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > .active:hover > a {
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>.active:hover>a {
   background-color: transparent;
   color: white;
 }
 
-.navbar-default .navbar-collapse .navbar-nav > li:first-child {
+.navbar-default .navbar-collapse .navbar-nav>li:first-child {
   margin-left: 0;
 }
 
-.navbar-collapse .navbar-right > li > a:focus {
+.navbar-collapse .navbar-right>li>a:focus {
   outline: none;
   background-color: transparent;
   color: white;
 }
 
-.navbar-default .navbar-nav > li > a.active-link {
+.navbar-default .navbar-nav>li>a.active-link {
   color: #fff;
 }
 
@@ -456,9 +456,9 @@ header .navbar-default li.btn-login a:hover,
   padding-bottom: 10px;
 }
 
-.affix .navbar-nav > .active > a,
-.affix .navbar-nav > li > a:hover,
-.affix .navbar-nav > .active:hover > a {
+.affix .navbar-nav>.active>a,
+.affix .navbar-nav>li>a:hover,
+.affix .navbar-nav>.active:hover>a {
   color: #eee !important;
 }
 
@@ -542,7 +542,7 @@ header .navbar-default li.btn-login a:hover,
   color: #06d5e8;
 }
 
-.navbar-default li.dropdown:hover > ul {
+.navbar-default li.dropdown:hover>ul {
   visibility: visible;
   opacity: 1;
   top: 90%;
@@ -1357,7 +1357,7 @@ footer p.sucess-message {
 .footer-center-content .feedback-text .upper-part p,
 .footer-center-content .feedback-text .bottom-part p {
   margin-right: 1px;
-  padding: 2px 10px;
+  padding: 2px 6px;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -1560,12 +1560,12 @@ Modal
   height: 20px !important;
 }
 
-.login-modal input[type='checkbox']:checked + label::before {
+.login-modal input[type='checkbox']:checked+label::before {
   background: #ffffff;
   border-color: #e6e7ef;
 }
 
-.login-modal input[type='checkbox'] + label::after {
+.login-modal input[type='checkbox']+label::after {
   font-family: 'ElegantIcons';
   content: '\4e';
   color: #06d5e8;
@@ -1574,12 +1574,12 @@ Modal
   border: none !important;
 }
 
-.login-modal input[type='checkbox']:checked + label::before {
+.login-modal input[type='checkbox']:checked+label::before {
   background: #ffffff;
   border-color: #e6e7ef;
 }
 
-.login-modal input[type='checkbox'] + label::after {
+.login-modal input[type='checkbox']+label::after {
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -ms-transform: scale(0);
@@ -1587,7 +1587,7 @@ Modal
   transform: scale(0);
 }
 
-.login-modal input[type='checkbox']:checked + label::after {
+.login-modal input[type='checkbox']:checked+label::after {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
@@ -1608,13 +1608,13 @@ Modal
 Blog
 ----------------------------------------*/
 
-.blog-header.navbar-default .navbar-nav > li > a {
+.blog-header.navbar-default .navbar-nav>li>a {
   color: #fff;
 }
 
-.blog-header.navbar-default .navbar-nav > li > a:hover,
+.blog-header.navbar-default .navbar-nav>li>a:hover,
 .blog-header.navbar-default .navbar-nav li.active a,
-.blog-header.navbar-default .navbar-nav > li > a:focus {
+.blog-header.navbar-default .navbar-nav>li>a:focus {
   color: #eee9;
 }
 
@@ -1787,12 +1787,12 @@ Blog
   text-align: center;
 }
 
-.pagination-page .pagination > li > a,
-.pagination-page .pagination > li > span {
+.pagination-page .pagination>li>a,
+.pagination-page .pagination>li>span {
   color: #06d5e8;
 }
 
-.pagination-page .pagination > .active > a {
+.pagination-page .pagination>.active>a {
   background: #06d5e8;
   border-color: #06d5e8;
   color: #fff;

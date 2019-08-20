@@ -236,16 +236,71 @@ const reviewString = [
   },
 ];
 
+const moreExamples = {
+  text: 'The atmosphere was wonderful but the food was bland and dry',
+  aspects: [
+    {
+      term: 'atmosphere',
+      overall_score: 0.78,
+      opinion_terms: [
+        {
+          value: 'wonderful',
+          score: 0.78,
+        },
+      ],
+    },
+    {
+      term: 'food',
+      overall_score: -0.35,
+      opinion_terms: [
+        {
+          value: 'bland',
+          score: -0.4,
+        },
+        {
+          value: 'dry',
+          score: -0.3,
+        },
+      ],
+    },
+  ],
+};
+
 function renderAnalyzeReview() {
   const divUpperFeedback = document.getElementById('upper-part-feedback');
+  let aspectSerializer = [];
 
-  reviewString.forEach(element => {
-    const newP = document.createElement('p');
-    const text = document.createTextNode(element.text);
-    newP.appendChild(text);
-    if (element.type !== '') {
-      newP.classList.add(element.type);
+  moreExamples.aspects.forEach(aspect => {
+    let typeOfAspect = 'negative';
+
+    if (aspect.overall_score >= 0.001) {
+      typeOfAspect = 'positive';
     }
+
+    aspectSerializer.push({
+      term: aspect.term,
+      typeOfAspect,
+    });
+
+    aspect.opinion_terms.forEach(terms => {
+      aspectSerializer.push({
+        term: terms.value,
+        typeOfAspect: 'aspect',
+      });
+    });
+  });
+
+  moreExamples.text.split(' ').forEach(element => {
+    const newP = document.createElement('p');
+    const text = document.createTextNode(element);
+    newP.appendChild(text);
+
+    aspectSerializer.forEach(serializeAspect => {
+      if (serializeAspect.term === element) {
+        newP.classList.add(serializeAspect.typeOfAspect);
+      }
+    });
+
     divUpperFeedback.appendChild(newP);
   });
 }

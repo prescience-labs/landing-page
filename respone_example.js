@@ -1,3 +1,33 @@
+const moreExamples = {
+  text: 'The atmosphere was wonderful but the food was bland and dry.',
+  aspects: [
+    {
+      term: 'atmosphere',
+      overall_score: 0.78,
+      opinion_terms: [
+        {
+          value: 'wonderful',
+          score: 0.78,
+        },
+      ],
+    },
+    {
+      term: 'food',
+      overall_score: -0.35,
+      opinion_terms: [
+        {
+          value: 'bland',
+          score: -0.4,
+        },
+        {
+          value: 'dry',
+          score: -0.3,
+        },
+      ],
+    },
+  ],
+};
+
 const responseExample = {
   status: {
     code: '0',
