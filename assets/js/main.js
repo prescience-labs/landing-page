@@ -271,21 +271,21 @@ function renderAnalyzeReview() {
   let aspectSerializer = [];
 
   moreExamples.aspects.forEach(aspect => {
-    let typeOfAspect = 'negative';
-
-    if (aspect.overall_score >= 0.001) {
-      typeOfAspect = 'positive';
-    }
-
     aspectSerializer.push({
       term: aspect.term,
-      typeOfAspect,
+      typeOfAspect: 'aspect',
     });
-
+    
     aspect.opinion_terms.forEach(terms => {
+      let typeOfAspect = 'negative';
+  
+      if (terms.score >= 0.001) {
+        typeOfAspect = 'positive';
+      }
+
       aspectSerializer.push({
         term: terms.value,
-        typeOfAspect: 'aspect',
+        typeOfAspect,
       });
     });
   });
