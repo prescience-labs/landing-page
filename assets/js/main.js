@@ -169,123 +169,158 @@ $(document).ready(function($) {
   }
 });
 
-const reviewString = [
-  {
-    text: 'This is my',
-    type: '',
-  },
-  {
-    text: 'review',
-    type: 'aspect',
-  },
-  {
-    text: "and IT'S",
-    type: '',
-  },
-  {
-    text: 'FREAKING AWESOME!',
-    type: 'positive',
-  },
-  {
-    text: 'I',
-    type: '',
-  },
-  {
-    text: 'love',
-    type: 'positive',
-  },
-  {
-    text: 'marvin gaye',
-    type: 'aspect',
-  },
-  {
-    text: 'and',
-    type: '',
-  },
-  {
-    text: 'jimmy buffet,',
-    type: 'aspect',
-  },
-  {
-    text: 'but i',
-    type: '',
-  },
-  {
-    text: 'hate',
-    type: 'negative',
-  },
-  {
-    text: 'john travolta,',
-    type: 'aspect',
-  },
-  {
-    text: 'john lennon,',
-    type: 'aspect',
-  },
-  {
-    text: 'and',
-    type: '',
-  },
-  {
-    text: 'jhon',
-    type: 'aspect',
-  },
-  {
-    text: 'from the bible',
-    type: '',
-  },
-];
-
 const moreExamples = {
-  text: 'The atmosphere was wonderful but the food was bland and dry',
-  aspects: [
-    {
-      term: 'atmosphere',
-      overall_score: 0.78,
-      opinion_terms: [
-        {
-          value: 'wonderful',
-          score: 0.78,
-        },
-      ],
-    },
-    {
-      term: 'food',
-      overall_score: -0.35,
-      opinion_terms: [
-        {
-          value: 'bland',
-          score: -0.4,
-        },
-        {
-          value: 'dry',
-          score: -0.3,
-        },
-      ],
-    },
-  ],
+  id: '4cd00d8d-d7e2-4cef-bd29-20a2e85b3919',
+  text: 'The staff is always happy and helpful',
+  sentiment_analysis: {
+    model: 'general_en',
+    score_tag: 'P',
+    agreement: 'AGREEMENT',
+    subjectivity: 'SUBJECTIVE',
+    confidence: '100',
+    irony: 'NONIRONIC',
+    sentence_list: [
+      {
+        text: 'The staff is always happy and helpful',
+        inip: '0',
+        endp: '36',
+        bop: 'y',
+        confidence: '100',
+        score_tag: 'P',
+        agreement: 'AGREEMENT',
+        segment_list: [
+          {
+            text: 'The staff is always happy and helpful',
+            segment_type: 'main',
+            inip: '0',
+            endp: '36',
+            confidence: '100',
+            score_tag: 'P',
+            agreement: 'AGREEMENT',
+            polarity_term_list: [
+              {
+                text: 'happy',
+                inip: '20',
+                endp: '24',
+                confidence: '100',
+                score_tag: 'P',
+                sentimented_concept_list: [
+                  {
+                    form: 'staff',
+                    id: '9431a28626',
+                    variant: 'staff',
+                    inip: '4',
+                    endp: '8',
+                    type: 'Top>Organization',
+                    score_tag: 'P',
+                  },
+                ],
+              },
+              {
+                text: 'helpful',
+                inip: '30',
+                endp: '36',
+                confidence: '100',
+                score_tag: 'P',
+                sentimented_concept_list: [
+                  {
+                    form: 'staff',
+                    id: '9431a28626',
+                    variant: 'staff',
+                    inip: '4',
+                    endp: '8',
+                    type: 'Top>Organization',
+                    score_tag: 'P',
+                  },
+                ],
+              },
+            ],
+            segment_list: [
+              {
+                text: 'always happy and helpful',
+                segment_type: 'main',
+                inip: '13',
+                endp: '36',
+                confidence: '100',
+                score_tag: 'P',
+                agreement: 'AGREEMENT',
+                polarity_term_list: [
+                  {
+                    text: 'happy',
+                    inip: '20',
+                    endp: '24',
+                    confidence: '100',
+                    score_tag: 'P',
+                  },
+                  {
+                    text: 'helpful',
+                    inip: '30',
+                    endp: '36',
+                    confidence: '100',
+                    score_tag: 'P',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        sentimented_entity_list: [],
+        sentimented_concept_list: [
+          {
+            form: 'staff',
+            id: '9431a28626',
+            type: 'Top>Organization',
+            score_tag: 'P',
+          },
+        ],
+      },
+    ],
+    sentimented_entity_list: [],
+    sentimented_concept_list: [
+      {
+        form: 'staff',
+        id: '9431a28626',
+        type: 'Top>Organization',
+        score_tag: 'P',
+      },
+    ],
+  },
 };
 
 function renderAnalyzeReview() {
   const divUpperFeedback = document.getElementById('upper-part-feedback');
   let aspectSerializer = [];
 
-  moreExamples.aspects.forEach(aspect => {
-    aspectSerializer.push({
-      term: aspect.term,
-      typeOfAspect: 'aspect',
-    });
-    
-    aspect.opinion_terms.forEach(terms => {
-      let typeOfAspect = 'negative';
-  
-      if (terms.score >= 0.001) {
-        typeOfAspect = 'positive';
-      }
+  moreExamples.sentiment_analysis.sentence_list.forEach(sentence_list => {
+    sentence_list.segment_list.forEach(segment_list => {
+      segment_list.polarity_term_list.forEach(polarity_term_list => {
+        let typeOfAspect = 'NEU';
 
-      aspectSerializer.push({
-        term: terms.value,
-        typeOfAspect,
+        if (
+          polarity_term_list.score_tag === 'P' ||
+          polarity_term_list.score_tag === 'P+'
+        ) {
+          typeOfAspect = 'positive';
+        } else if (
+          polarity_term_list.score_tag === 'N' ||
+          polarity_term_list.score_tag === 'N+'
+        ) {
+          typeOfAspect = 'negative';
+        }
+
+        aspectSerializer.push({
+          term: polarity_term_list.text,
+          typeOfAspect,
+        });
+
+        polarity_term_list.sentimented_concept_list.forEach(
+          sentimented_concept_list => {
+            aspectSerializer.push({
+              term: sentimented_concept_list.form,
+              typeOfAspect: 'aspect',
+            });
+          },
+        );
       });
     });
   });
@@ -296,7 +331,7 @@ function renderAnalyzeReview() {
     newP.appendChild(text);
 
     aspectSerializer.forEach(serializeAspect => {
-      if (serializeAspect.term === element) {
+      if (serializeAspect.term === element && serializeAspect.term !== 'NEU') {
         newP.classList.add(serializeAspect.typeOfAspect);
       }
     });
