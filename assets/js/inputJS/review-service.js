@@ -1,5 +1,5 @@
-import envConfiguration from './Config/config';
-envConfiguration();
+// import envConfiguration from './Config/config';
+// envConfiguration();
 
 /**
  *Function to normalize the payload receive in the review request call and the creation of the analyze text.
@@ -8,11 +8,23 @@ envConfiguration();
  */
 function renderAnalyzeReview(reviewResult) {
   const divUpperFeedback = document.getElementById('upper-part-feedback');
+
+  // To clean the div;
+  const range = document.createRange();
+  range.selectNodeContents(divUpperFeedback);
+  range.deleteContents();
+
   let aspectSerializer = [];
 
+  // I don't think this cart is beautiful
   reviewResult.sentiment_analysis.sentence_list.forEach(sentence_list => {
+    console.log('sentence_list :', sentence_list);
+
     sentence_list.segment_list.forEach(segment_list => {
+      console.log('segment_list :', segment_list);
+
       segment_list.polarity_term_list.forEach(polarity_term_list => {
+        console.log('polarity_term_list :', polarity_term_list);
         let typeOfAspect = 'NEU';
 
         if (
@@ -32,15 +44,28 @@ function renderAnalyzeReview(reviewResult) {
           typeOfAspect,
         });
 
-        polarity_term_list.sentimented_concept_list.forEach(
+        if (polarity_term_list.sentimented_concept_list) {
+          polarity_term_list.sentimented_concept_list.forEach(
+            sentimented_concept_list => {
+              aspectSerializer.push({
+                term: sentimented_concept_list.variant,
+                typeOfAspect: 'aspect',
+              });
+            },
+          );
+        }
+      });
+
+      if (segment_list.sentimented_concept_list) {
+        segment_list.sentimented_concept_list.forEach(
           sentimented_concept_list => {
             aspectSerializer.push({
-              term: sentimented_concept_list.form,
+              term: sentimented_concept_list.variant,
               typeOfAspect: 'aspect',
             });
           },
         );
-      });
+      }
     });
   });
 
@@ -50,7 +75,10 @@ function renderAnalyzeReview(reviewResult) {
     newP.appendChild(text);
 
     aspectSerializer.forEach(serializeAspect => {
-      if (serializeAspect.term === element && serializeAspect.term !== 'NEU') {
+      if (
+        serializeAspect.term.toUpperCase() === element.toUpperCase() &&
+        serializeAspect.term !== 'NEU'
+      ) {
         newP.classList.add(serializeAspect.typeOfAspect);
       }
     });
@@ -67,6 +95,7 @@ function analyzeDataSubmitListener() {
     .getElementById('analyze-form')
     .addEventListener('submit', function(event) {
       event.preventDefault();
+
       const textArea = event.target[0];
 
       if (textArea.value === '') {
@@ -84,19 +113,8 @@ function analyzeDataSubmitListener() {
         },
       );
 
-      const axiosConfig = {
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-          'Access-Control-Allow-Origin': '*',
-        },
-      };
-
       axios
-        .post(
-          `${process.env.REVIEW_END_POINT}/documents`,
-          postParams,
-          axiosConfig,
-        )
+        .post(`documents`, postParams)
         .then(function(response) {
           renderAnalyzeReview(response.data);
           document.getElementById('feedback-text').classList.remove('hidden');
