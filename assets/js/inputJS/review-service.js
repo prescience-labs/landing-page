@@ -18,13 +18,13 @@ function renderAnalyzeReview(reviewResult) {
 
   // I don't think this cart is beautiful
   reviewResult.sentiment_analysis.sentence_list.forEach(sentence_list => {
-    console.log('sentence_list :', sentence_list);
+    // console.log('sentence_list :', sentence_list);
 
     sentence_list.segment_list.forEach(segment_list => {
-      console.log('segment_list :', segment_list);
+      // console.log('segment_list :', segment_list);
 
       segment_list.polarity_term_list.forEach(polarity_term_list => {
-        console.log('polarity_term_list :', polarity_term_list);
+        // console.log('polarity_term_list :', polarity_term_list);
         let typeOfAspect = 'NEU';
 
         if (
@@ -40,7 +40,10 @@ function renderAnalyzeReview(reviewResult) {
         }
 
         aspectSerializer.push({
-          term: polarity_term_list.text,
+          term: reviewResult.text.slice(
+            parseInt(polarity_term_list.inip),
+            parseInt(polarity_term_list.endp) + 1,
+          ),
           typeOfAspect,
         });
 
@@ -66,8 +69,21 @@ function renderAnalyzeReview(reviewResult) {
           },
         );
       }
+
+      if (segment_list.sentimented_entity_list) {
+        segment_list.sentimented_entity_list.forEach(
+          sentimented_entity_list => {
+            aspectSerializer.push({
+              term: sentimented_entity_list.form,
+              typeOfAspect: 'aspect',
+            });
+          },
+        );
+      }
     });
   });
+
+  console.log('aspectSerializer', aspectSerializer);
 
   reviewResult.text.split(' ').forEach(element => {
     const newP = document.createElement('p');
@@ -75,10 +91,10 @@ function renderAnalyzeReview(reviewResult) {
     newP.appendChild(text);
 
     aspectSerializer.forEach(serializeAspect => {
-      if (
-        serializeAspect.term.toUpperCase() === element.toUpperCase() &&
-        serializeAspect.term !== 'NEU'
-      ) {
+      const serializeTerm = serializeAspect.term.toUpperCase();
+      const reviewTextPart = element.replace(/[.,;_?!%$#]/g, '').toUpperCase();
+
+      if (serializeTerm === reviewTextPart && serializeAspect.term !== 'NEU') {
         newP.classList.add(serializeAspect.typeOfAspect);
       }
     });
@@ -114,7 +130,7 @@ function analyzeDataSubmitListener() {
       );
 
       axios
-        .post(`documents`, postParams)
+        .post(`${process.env.DOCUMENT_END_POINT}/documents`, postParams)
         .then(function(response) {
           renderAnalyzeReview(response.data);
           document.getElementById('feedback-text').classList.remove('hidden');

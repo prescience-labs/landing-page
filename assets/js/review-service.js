@@ -1,2 +1,154 @@
-!function(){"use strict";document.getElementById("analyze-form").addEventListener("submit",function(e){e.preventDefault();const t=e.target[0];if(""===t.value)return t.classList.add("animated","shake"),void setTimeout(()=>{t.classList.remove("animated","shake")},1e3);const s=Object.assign({},{text:t.value});axios.post("documents",s).then(function(e){!function(e){const t=document.getElementById("upper-part-feedback"),s=document.createRange();s.selectNodeContents(t),s.deleteContents();let n=[];e.sentiment_analysis.sentence_list.forEach(e=>{console.log("sentence_list :",e),e.segment_list.forEach(e=>{console.log("segment_list :",e),e.polarity_term_list.forEach(e=>{console.log("polarity_term_list :",e);let t="NEU";"P"===e.score_tag||"P+"===e.score_tag?t="positive":"N"!==e.score_tag&&"N+"!==e.score_tag||(t="negative"),n.push({term:e.text,typeOfAspect:t}),e.sentimented_concept_list&&e.sentimented_concept_list.forEach(e=>{n.push({term:e.variant,typeOfAspect:"aspect"})})}),e.sentimented_concept_list&&e.sentimented_concept_list.forEach(e=>{n.push({term:e.variant,typeOfAspect:"aspect"})})})}),e.text.split(" ").forEach(e=>{const s=document.createElement("p"),a=document.createTextNode(e);s.appendChild(a),n.forEach(t=>{t.term.toUpperCase()===e.toUpperCase()&&"NEU"!==t.term&&s.classList.add(t.typeOfAspect)}),t.appendChild(s)})}(e.data),document.getElementById("feedback-text").classList.remove("hidden"),document.getElementById("feedback-text").classList.add("animated","fadeInUp"),t.value=""}).catch(function(e){throw new Error(e)})})}();
+(function () {
+  'use strict';
+
+  // import envConfiguration from './Config/config';
+  // envConfiguration();
+
+  /**
+   *Function to normalize the payload receive in the review request call and the creation of the analyze text.
+   *
+   * @param {*} reviewResult
+   */
+  function renderAnalyzeReview(reviewResult) {
+    const divUpperFeedback = document.getElementById('upper-part-feedback');
+
+    // To clean the div;
+    const range = document.createRange();
+    range.selectNodeContents(divUpperFeedback);
+    range.deleteContents();
+
+    let aspectSerializer = [];
+
+    // I don't think this cart is beautiful
+    reviewResult.sentiment_analysis.sentence_list.forEach(sentence_list => {
+      // console.log('sentence_list :', sentence_list);
+
+      sentence_list.segment_list.forEach(segment_list => {
+        // console.log('segment_list :', segment_list);
+
+        segment_list.polarity_term_list.forEach(polarity_term_list => {
+          // console.log('polarity_term_list :', polarity_term_list);
+          let typeOfAspect = 'NEU';
+
+          if (
+            polarity_term_list.score_tag === 'P' ||
+            polarity_term_list.score_tag === 'P+'
+          ) {
+            typeOfAspect = 'positive';
+          } else if (
+            polarity_term_list.score_tag === 'N' ||
+            polarity_term_list.score_tag === 'N+'
+          ) {
+            typeOfAspect = 'negative';
+          }
+
+          aspectSerializer.push({
+            term: reviewResult.text.slice(
+              parseInt(polarity_term_list.inip),
+              parseInt(polarity_term_list.endp) + 1,
+            ),
+            typeOfAspect,
+          });
+
+          if (polarity_term_list.sentimented_concept_list) {
+            polarity_term_list.sentimented_concept_list.forEach(
+              sentimented_concept_list => {
+                aspectSerializer.push({
+                  term: sentimented_concept_list.variant,
+                  typeOfAspect: 'aspect',
+                });
+              },
+            );
+          }
+        });
+
+        if (segment_list.sentimented_concept_list) {
+          segment_list.sentimented_concept_list.forEach(
+            sentimented_concept_list => {
+              aspectSerializer.push({
+                term: sentimented_concept_list.variant,
+                typeOfAspect: 'aspect',
+              });
+            },
+          );
+        }
+
+        if (segment_list.sentimented_entity_list) {
+          segment_list.sentimented_entity_list.forEach(
+            sentimented_entity_list => {
+              aspectSerializer.push({
+                term: sentimented_entity_list.form,
+                typeOfAspect: 'aspect',
+              });
+            },
+          );
+        }
+      });
+    });
+
+    console.log('aspectSerializer', aspectSerializer);
+
+    reviewResult.text.split(' ').forEach(element => {
+      const newP = document.createElement('p');
+      const text = document.createTextNode(element);
+      newP.appendChild(text);
+
+      aspectSerializer.forEach(serializeAspect => {
+        const serializeTerm = serializeAspect.term.toUpperCase();
+        const reviewTextPart = element.replace(/[.,;_?!%$#]/g, '').toUpperCase();
+
+        if (serializeTerm === reviewTextPart && serializeAspect.term !== 'NEU') {
+          newP.classList.add(serializeAspect.typeOfAspect);
+        }
+      });
+
+      divUpperFeedback.appendChild(newP);
+    });
+  }
+
+  /**
+   * Function to listen to submissions of example reviews
+   */
+  function analyzeDataSubmitListener() {
+    document
+      .getElementById('analyze-form')
+      .addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const textArea = event.target[0];
+
+        if (textArea.value === '') {
+          textArea.classList.add('animated', 'shake');
+          setTimeout(() => {
+            textArea.classList.remove('animated', 'shake');
+          }, 1000);
+          return;
+        }
+
+        const postParams = Object.assign(
+          {},
+          {
+            text: textArea.value,
+          },
+        );
+
+        axios
+          .post(`${process.env.DOCUMENT_END_POINT}/documents`, postParams)
+          .then(function(response) {
+            renderAnalyzeReview(response.data);
+            document.getElementById('feedback-text').classList.remove('hidden');
+            document
+              .getElementById('feedback-text')
+              .classList.add('animated', 'fadeInUp');
+            textArea.value = '';
+          })
+          .catch(function(error) {
+            throw new Error(error);
+          });
+      });
+  }
+
+  analyzeDataSubmitListener();
+
+}());
 //# sourceMappingURL=review-service.js.map

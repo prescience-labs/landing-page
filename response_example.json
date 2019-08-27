@@ -1,0 +1,837 @@
+{
+  "id": "9101aaca-5dfb-4b44-97fc-03566b5714d7",
+  "text": "I bought three of these bottles for my daughters, and they absolutely love them. Nice and big with fun designs and easy to drink from.\n\nBUT... 50% of the time, a few minutes after they put them down on a surface, I find the bottle sitting in a pool of water or juice that has leaked out of the bite valve at the top. All the surfaces in their playroom are slowly getting ruined with watermarks! I presume it wouldn't leak so much if they made sure to push it closed every time they've finished drinking, but my kids just can't remember to do that...\n\nSeems like it's something to do with the liquid inside warming up and the pressure pushing it up the straw and out of the bottle. It's a real design flaw, and it would be great if Camelbak could take the time to look into why it's happening so often and try and redesign the valve so it doesn't happen.",
+  "sentiment_analysis": {
+    "model": "general_en",
+    "score_tag": "P",
+    "agreement": "DISAGREEMENT",
+    "subjectivity": "SUBJECTIVE",
+    "confidence": "86",
+    "irony": "NONIRONIC",
+    "sentence_list": [
+      {
+        "text": "I bought three of these bottles for my daughters, and they absolutely love them.",
+        "inip": "0",
+        "endp": "79",
+        "bop": "y",
+        "confidence": "100",
+        "score_tag": "P+",
+        "agreement": "AGREEMENT",
+        "segment_list": [
+          {
+            "text": "I bought three of these bottles for my daughters",
+            "segment_type": "secondary",
+            "inip": "0",
+            "endp": "47",
+            "confidence": "100",
+            "score_tag": "NONE",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [],
+            "sentimented_concept_list": [
+              {
+                "form": "bottle",
+                "id": "cd3d97d73e",
+                "variant": "bottles",
+                "inip": "24",
+                "endp": "30",
+                "type": "Top>Product>Utensil>Container",
+                "score_tag": "NONE"
+              }
+            ]
+          },
+          {
+            "text": "they absolutely love them",
+            "segment_type": "main",
+            "inip": "54",
+            "endp": "78",
+            "confidence": "100",
+            "score_tag": "P+",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [
+              {
+                "text": "love@V",
+                "inip": "70",
+                "endp": "73",
+                "confidence": "100",
+                "score_tag": "P+"
+              }
+            ]
+          }
+        ],
+        "sentimented_entity_list": [],
+        "sentimented_concept_list": [
+          {
+            "form": "bottle",
+            "id": "cd3d97d73e",
+            "type": "Top>Product>Utensil>Container",
+            "score_tag": "NONE"
+          }
+        ]
+      },
+      {
+        "text": "Nice and big with fun designs and easy to drink from.",
+        "inip": "81",
+        "endp": "133",
+        "bop": "n",
+        "confidence": "95",
+        "score_tag": "P+",
+        "agreement": "AGREEMENT",
+        "segment_list": [
+          {
+            "text": "Nice and big with fun designs and easy to drink from",
+            "segment_type": "main",
+            "inip": "81",
+            "endp": "132",
+            "confidence": "95",
+            "score_tag": "P+",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [
+              {
+                "text": "nice",
+                "inip": "81",
+                "endp": "84",
+                "confidence": "100",
+                "score_tag": "P"
+              },
+              {
+                "text": "(big) fun",
+                "inip": "99",
+                "endp": "101",
+                "confidence": "95",
+                "score_tag": "P+"
+              },
+              {
+                "text": "(big) easy",
+                "inip": "115",
+                "endp": "118",
+                "confidence": "98",
+                "score_tag": "P"
+              }
+            ],
+            "sentimented_concept_list": [
+              {
+                "form": "design",
+                "id": "96f27ab120",
+                "variant": "designs",
+                "inip": "103",
+                "endp": "109",
+                "type": "Top",
+                "score_tag": "NONE"
+              }
+            ],
+            "segment_list": [
+              {
+                "text": "Nice and big with fun designs and easy",
+                "segment_type": "main",
+                "inip": "81",
+                "endp": "118",
+                "confidence": "95",
+                "score_tag": "P+",
+                "agreement": "AGREEMENT",
+                "polarity_term_list": [
+                  {
+                    "text": "nice",
+                    "inip": "81",
+                    "endp": "84",
+                    "confidence": "100",
+                    "score_tag": "P",
+                    "sentimented_concept_list": [
+                      {
+                        "form": "design",
+                        "id": "96f27ab120",
+                        "variant": "designs",
+                        "inip": "103",
+                        "endp": "109",
+                        "type": "Top",
+                        "score_tag": "P"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "(big) fun",
+                    "inip": "99",
+                    "endp": "101",
+                    "confidence": "95",
+                    "score_tag": "P+",
+                    "sentimented_concept_list": [
+                      {
+                        "form": "design",
+                        "id": "96f27ab120",
+                        "variant": "designs",
+                        "inip": "103",
+                        "endp": "109",
+                        "type": "Top",
+                        "score_tag": "P+"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "(big) easy",
+                    "inip": "115",
+                    "endp": "118",
+                    "confidence": "98",
+                    "score_tag": "P",
+                    "sentimented_concept_list": [
+                      {
+                        "form": "design",
+                        "id": "96f27ab120",
+                        "variant": "designs",
+                        "inip": "103",
+                        "endp": "109",
+                        "type": "Top",
+                        "score_tag": "P"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "sentimented_entity_list": [],
+        "sentimented_concept_list": [
+          {
+            "form": "design",
+            "id": "96f27ab120",
+            "type": "Top",
+            "score_tag": "P"
+          }
+        ]
+      },
+      {
+        "text": "BUT...",
+        "inip": "136",
+        "endp": "141",
+        "bop": "y",
+        "confidence": "100",
+        "score_tag": "NONE",
+        "agreement": "AGREEMENT",
+        "segment_list": [
+          {
+            "text": "...",
+            "segment_type": "secondary",
+            "inip": "139",
+            "endp": "141",
+            "confidence": "100",
+            "score_tag": "NONE",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": []
+          }
+        ],
+        "sentimented_entity_list": [],
+        "sentimented_concept_list": []
+      },
+      {
+        "text": "50% of the time, a few minutes after they put them down on a surface, I find the bottle sitting in a pool of water or juice that has leaked out of the bite valve at the top.",
+        "inip": "143",
+        "endp": "315",
+        "bop": "n",
+        "confidence": "100",
+        "score_tag": "N",
+        "agreement": "AGREEMENT",
+        "segment_list": [
+          {
+            "text": "50% of the time, a few minutes after they put down them on a surface, I find the bottle sitting in a pool of water or juice that has leaked out of the bite valve at the top",
+            "segment_type": "main",
+            "inip": "143",
+            "endp": "314",
+            "confidence": "100",
+            "score_tag": "N",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [
+              {
+                "text": "bite",
+                "inip": "294",
+                "endp": "297",
+                "confidence": "100",
+                "score_tag": "N",
+                "sentimented_concept_list": [
+                  {
+                    "form": "bottle",
+                    "id": "cd3d97d73e",
+                    "variant": "bottle",
+                    "inip": "224",
+                    "endp": "229",
+                    "type": "Top>Product>Utensil>Container",
+                    "score_tag": "N"
+                  },
+                  {
+                    "form": "snooker",
+                    "id": "84ba234407",
+                    "variant": "pool",
+                    "inip": "244",
+                    "endp": "247",
+                    "type": "Top>OtherEntity>Doctrine>Sports",
+                    "score_tag": "N"
+                  },
+                  {
+                    "form": "swimming-pool",
+                    "id": "b034e97534",
+                    "variant": "pool",
+                    "inip": "244",
+                    "endp": "247",
+                    "type": "Top>Location>Facility",
+                    "score_tag": "N"
+                  },
+                  {
+                    "form": "pool",
+                    "id": "f065f3b2db",
+                    "variant": "pool",
+                    "inip": "244",
+                    "endp": "247",
+                    "type": "Top>Location>GeographicalEntity>WaterForm",
+                    "score_tag": "N"
+                  },
+                  {
+                    "form": "valve",
+                    "id": "fcee862387",
+                    "variant": "valve",
+                    "inip": "299",
+                    "endp": "303",
+                    "type": "Top",
+                    "score_tag": "N"
+                  }
+                ]
+              }
+            ],
+            "sentimented_concept_list": [
+              {
+                "form": "juice",
+                "id": "ce1090a37f",
+                "variant": "juice",
+                "inip": "261",
+                "endp": "265",
+                "type": "Top>Product>Food>Beverage",
+                "score_tag": "NONE"
+              },
+              {
+                "form": "surface",
+                "id": "e2e6333781",
+                "variant": "surface",
+                "inip": "204",
+                "endp": "210",
+                "type": "Top>Unit>SpaceUnit",
+                "score_tag": "NONE"
+              }
+            ]
+          }
+        ],
+        "sentimented_entity_list": [],
+        "sentimented_concept_list": [
+          {
+            "form": "snooker",
+            "id": "84ba234407",
+            "type": "Top>OtherEntity>Doctrine>Sports",
+            "score_tag": "N"
+          },
+          {
+            "form": "swimming-pool",
+            "id": "b034e97534",
+            "type": "Top>Location>Facility",
+            "score_tag": "N"
+          },
+          {
+            "form": "bottle",
+            "id": "cd3d97d73e",
+            "type": "Top>Product>Utensil>Container",
+            "score_tag": "N"
+          },
+          {
+            "form": "juice",
+            "id": "ce1090a37f",
+            "type": "Top>Product>Food>Beverage",
+            "score_tag": "NONE"
+          },
+          {
+            "form": "surface",
+            "id": "e2e6333781",
+            "type": "Top>Unit>SpaceUnit",
+            "score_tag": "NONE"
+          },
+          {
+            "form": "pool",
+            "id": "f065f3b2db",
+            "type": "Top>Location>GeographicalEntity>WaterForm",
+            "score_tag": "N"
+          },
+          {
+            "form": "valve",
+            "id": "fcee862387",
+            "type": "Top",
+            "score_tag": "N"
+          }
+        ]
+      },
+      {
+        "text": "All the surfaces in their playroom are slowly getting ruined with watermarks!",
+        "inip": "317",
+        "endp": "393",
+        "bop": "n",
+        "confidence": "100",
+        "score_tag": "N",
+        "agreement": "AGREEMENT",
+        "segment_list": [
+          {
+            "text": "All the surfaces in their playroom are slowly getting ruined with watermarks!",
+            "segment_type": "main",
+            "inip": "317",
+            "endp": "393",
+            "confidence": "100",
+            "score_tag": "N",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [
+              {
+                "text": "ruin",
+                "inip": "371",
+                "endp": "376",
+                "confidence": "100",
+                "score_tag": "N",
+                "sentimented_concept_list": [
+                  {
+                    "form": "surface",
+                    "id": "e2e6333781",
+                    "variant": "surfaces",
+                    "inip": "325",
+                    "endp": "332",
+                    "type": "Top>Unit>SpaceUnit",
+                    "score_tag": "N"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "sentimented_entity_list": [],
+        "sentimented_concept_list": [
+          {
+            "form": "surface",
+            "id": "e2e6333781",
+            "type": "Top>Unit>SpaceUnit",
+            "score_tag": "N"
+          }
+        ]
+      },
+      {
+        "text": "I presume it wouldn't leak so much if they made sure to push it closed every time they've finished drinking, but my kids just can't remember to do that...",
+        "inip": "395",
+        "endp": "548",
+        "bop": "n",
+        "confidence": "92",
+        "score_tag": "P",
+        "agreement": "AGREEMENT",
+        "segment_list": [
+          {
+            "text": "I presume",
+            "segment_type": "secondary",
+            "inip": "395",
+            "endp": "403",
+            "confidence": "100",
+            "score_tag": "NONE",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": []
+          },
+          {
+            "text": "it wouldn't leak so much if they made sure to push it closed every time they've finished drinking",
+            "segment_type": "main",
+            "inip": "405",
+            "endp": "501",
+            "confidence": "92",
+            "score_tag": "P",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [
+              {
+                "text": "(wouldn't leak) close@V",
+                "inip": "459",
+                "endp": "464",
+                "confidence": "92",
+                "score_tag": "P"
+              }
+            ],
+            "segment_list": [
+              {
+                "text": "it wouldn't leak so much if they made sure to push it closed every time they",
+                "segment_type": "main",
+                "inip": "405",
+                "endp": "480",
+                "confidence": "92",
+                "score_tag": "P",
+                "agreement": "AGREEMENT",
+                "polarity_term_list": [
+                  {
+                    "text": "(wouldn't leak) close@V",
+                    "inip": "459",
+                    "endp": "464",
+                    "confidence": "92",
+                    "score_tag": "P"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "my kids just can't remember to do",
+            "segment_type": "main",
+            "inip": "508",
+            "endp": "540",
+            "confidence": "100",
+            "score_tag": "NONE",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [],
+            "sentimented_concept_list": [
+              {
+                "form": "kid",
+                "id": "d9ad0b33c3",
+                "variant": "kids",
+                "inip": "511",
+                "endp": "514",
+                "type": "Top>Person",
+                "score_tag": "NONE"
+              }
+            ]
+          },
+          {
+            "text": "...",
+            "segment_type": "secondary",
+            "inip": "546",
+            "endp": "548",
+            "confidence": "100",
+            "score_tag": "NONE",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": []
+          }
+        ],
+        "sentimented_entity_list": [],
+        "sentimented_concept_list": [
+          {
+            "form": "kid",
+            "id": "d9ad0b33c3",
+            "type": "Top>Person",
+            "score_tag": "NONE"
+          }
+        ]
+      },
+      {
+        "text": "Seems like it's something to do with the liquid inside warming up and the pressure pushing it up the straw and out of the bottle.",
+        "inip": "551",
+        "endp": "679",
+        "bop": "y",
+        "confidence": "100",
+        "score_tag": "P",
+        "agreement": "AGREEMENT",
+        "segment_list": [
+          {
+            "text": "Seems like it's something to do with the liquid inside warming up",
+            "segment_type": "main",
+            "inip": "551",
+            "endp": "615",
+            "confidence": "100",
+            "score_tag": "P",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [
+              {
+                "text": "warm",
+                "inip": "606",
+                "endp": "612",
+                "confidence": "100",
+                "score_tag": "P"
+              }
+            ],
+            "sentimented_concept_list": [
+              {
+                "form": "liquid",
+                "id": "f398777be8",
+                "variant": "liquid",
+                "inip": "592",
+                "endp": "597",
+                "type": "Top",
+                "score_tag": "NONE"
+              }
+            ]
+          },
+          {
+            "text": "the pressure pushing it up the straw",
+            "segment_type": "secondary",
+            "inip": "621",
+            "endp": "656",
+            "confidence": "100",
+            "score_tag": "NONE",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [],
+            "sentimented_concept_list": [
+              {
+                "form": "pressure",
+                "id": "d4d51d3519",
+                "variant": "pressure",
+                "inip": "625",
+                "endp": "632",
+                "type": "Top",
+                "score_tag": "NONE"
+              }
+            ]
+          },
+          {
+            "text": "out of the bottle",
+            "segment_type": "secondary",
+            "inip": "662",
+            "endp": "678",
+            "confidence": "100",
+            "score_tag": "NONE",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [],
+            "sentimented_concept_list": [
+              {
+                "form": "bottle",
+                "id": "cd3d97d73e",
+                "variant": "bottle",
+                "inip": "673",
+                "endp": "678",
+                "type": "Top>Product>Utensil>Container",
+                "score_tag": "NONE"
+              }
+            ]
+          }
+        ],
+        "sentimented_entity_list": [],
+        "sentimented_concept_list": [
+          {
+            "form": "bottle",
+            "id": "cd3d97d73e",
+            "type": "Top>Product>Utensil>Container",
+            "score_tag": "NONE"
+          },
+          {
+            "form": "pressure",
+            "id": "d4d51d3519",
+            "type": "Top",
+            "score_tag": "NONE"
+          },
+          {
+            "form": "liquid",
+            "id": "f398777be8",
+            "type": "Top",
+            "score_tag": "NONE"
+          }
+        ]
+      },
+      {
+        "text": "It's a real design flaw, and it would be great if Camelbak could take the time to look into why it's happening so often and try and redesign the valve so it doesn't happen.",
+        "inip": "681",
+        "endp": "852",
+        "bop": "n",
+        "confidence": "92",
+        "score_tag": "P",
+        "agreement": "DISAGREEMENT",
+        "segment_list": [
+          {
+            "text": "It's a real design flaw",
+            "segment_type": "main",
+            "inip": "681",
+            "endp": "703",
+            "confidence": "98",
+            "score_tag": "N",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [
+              {
+                "text": "(real) flaw",
+                "inip": "700",
+                "endp": "703",
+                "confidence": "98",
+                "score_tag": "N",
+                "sentimented_concept_list": [
+                  {
+                    "form": "design",
+                    "id": "96f27ab120",
+                    "variant": "design",
+                    "inip": "693",
+                    "endp": "698",
+                    "type": "Top",
+                    "score_tag": "N"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "it would be great if Camelbak could take the time to look into why it's happening so often and try",
+            "segment_type": "main",
+            "inip": "710",
+            "endp": "807",
+            "confidence": "100",
+            "score_tag": "P+",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [
+              {
+                "text": "great",
+                "inip": "722",
+                "endp": "726",
+                "confidence": "100",
+                "score_tag": "P+"
+              }
+            ],
+            "sentimented_entity_list": [
+              {
+                "form": "CamelBak",
+                "id": "93ed4bb6fa",
+                "variant": "Camelbak",
+                "inip": "731",
+                "endp": "738",
+                "type": "Top>Organization>Company>IndustrialCompany",
+                "score_tag": "NONE"
+              }
+            ],
+            "segment_list": [
+              {
+                "text": "it would be great if Camelbak could take the time to look into why it",
+                "segment_type": "main",
+                "inip": "710",
+                "endp": "778",
+                "confidence": "100",
+                "score_tag": "P+",
+                "agreement": "AGREEMENT",
+                "polarity_term_list": [
+                  {
+                    "text": "great",
+                    "inip": "722",
+                    "endp": "726",
+                    "confidence": "100",
+                    "score_tag": "P+"
+                  }
+                ],
+                "sentimented_entity_list": [
+                  {
+                    "form": "CamelBak",
+                    "id": "93ed4bb6fa",
+                    "variant": "Camelbak",
+                    "inip": "731",
+                    "endp": "738",
+                    "type": "Top>Organization>Company>IndustrialCompany",
+                    "score_tag": "NONE"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "redesign the valve so it doesn't happen",
+            "segment_type": "main",
+            "inip": "813",
+            "endp": "851",
+            "confidence": "100",
+            "score_tag": "NONE",
+            "agreement": "AGREEMENT",
+            "polarity_term_list": [],
+            "sentimented_concept_list": [
+              {
+                "form": "valve",
+                "id": "fcee862387",
+                "variant": "valve",
+                "inip": "826",
+                "endp": "830",
+                "type": "Top",
+                "score_tag": "NONE"
+              }
+            ]
+          }
+        ],
+        "sentimented_entity_list": [
+          {
+            "form": "CamelBak",
+            "id": "93ed4bb6fa",
+            "type": "Top>Organization>Company>IndustrialCompany",
+            "score_tag": "NONE"
+          }
+        ],
+        "sentimented_concept_list": [
+          {
+            "form": "design",
+            "id": "96f27ab120",
+            "type": "Top",
+            "score_tag": "N"
+          },
+          {
+            "form": "valve",
+            "id": "fcee862387",
+            "type": "Top",
+            "score_tag": "NONE"
+          }
+        ]
+      }
+    ],
+    "sentimented_entity_list": [
+      {
+        "form": "CamelBak",
+        "id": "93ed4bb6fa",
+        "type": "Top>Organization>Company>IndustrialCompany",
+        "score_tag": "NONE"
+      }
+    ],
+    "sentimented_concept_list": [
+      {
+        "form": "snooker",
+        "id": "84ba234407",
+        "type": "Top>OtherEntity>Doctrine>Sports",
+        "score_tag": "N"
+      },
+      {
+        "form": "design",
+        "id": "96f27ab120",
+        "type": "Top",
+        "score_tag": "P"
+      },
+      {
+        "form": "swimming-pool",
+        "id": "b034e97534",
+        "type": "Top>Location>Facility",
+        "score_tag": "N"
+      },
+      {
+        "form": "bottle",
+        "id": "cd3d97d73e",
+        "type": "Top>Product>Utensil>Container",
+        "score_tag": "N"
+      },
+      {
+        "form": "juice",
+        "id": "ce1090a37f",
+        "type": "Top>Product>Food>Beverage",
+        "score_tag": "NONE"
+      },
+      {
+        "form": "pressure",
+        "id": "d4d51d3519",
+        "type": "Top",
+        "score_tag": "NONE"
+      },
+      {
+        "form": "kid",
+        "id": "d9ad0b33c3",
+        "type": "Top>Person",
+        "score_tag": "NONE"
+      },
+      {
+        "form": "surface",
+        "id": "e2e6333781",
+        "type": "Top>Unit>SpaceUnit",
+        "score_tag": "N"
+      },
+      {
+        "form": "pool",
+        "id": "f065f3b2db",
+        "type": "Top>Location>GeographicalEntity>WaterForm",
+        "score_tag": "N"
+      },
+      {
+        "form": "liquid",
+        "id": "f398777be8",
+        "type": "Top",
+        "score_tag": "NONE"
+      },
+      {
+        "form": "valve",
+        "id": "fcee862387",
+        "type": "Top",
+        "score_tag": "N"
+      }
+    ]
+  }
+}
