@@ -1,5 +1,5 @@
-// import envConfiguration from './Config/config';
-// envConfiguration();
+import envConfiguration from './Config/config';
+envConfiguration();
 
 /**
  *Function to normalize the payload receive in the review request call and the creation of the analyze text.
@@ -16,15 +16,9 @@ function renderAnalyzeReview(reviewResult) {
 
   let aspectSerializer = [];
 
-  // I don't think this cart is beautiful
   reviewResult.sentiment_analysis.sentence_list.forEach(sentence_list => {
-    // console.log('sentence_list :', sentence_list);
-
     sentence_list.segment_list.forEach(segment_list => {
-      // console.log('segment_list :', segment_list);
-
       segment_list.polarity_term_list.forEach(polarity_term_list => {
-        // console.log('polarity_term_list :', polarity_term_list);
         let typeOfAspect = 'NEU';
 
         if (
