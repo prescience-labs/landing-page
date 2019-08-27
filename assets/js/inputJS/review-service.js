@@ -1,6 +1,3 @@
-import envConfiguration from './Config/config';
-envConfiguration();
-
 /**
  *Function to normalize the payload receive in the review request call and the creation of the analyze text.
  *
