@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +14,10 @@
 
         gtag('config', 'UA-124570982-1');
     </script>
-
+    <script>
+        console.log("{{site.document}}");
+        const documentServerBaseUrl = "{{ site.document }}";
+    </script>
 
     <!--Metas-->
     <meta charset="UTF-8">

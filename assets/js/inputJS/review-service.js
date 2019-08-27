@@ -74,8 +74,6 @@ function renderAnalyzeReview(reviewResult) {
     });
   });
 
-  console.log('aspectSerializer', aspectSerializer);
-
   reviewResult.text.split(' ').forEach(element => {
     const newP = document.createElement('p');
     const text = document.createTextNode(element);
@@ -121,7 +119,7 @@ function analyzeDataSubmitListener() {
       );
 
       axios
-        .post(`${process.env.DOCUMENT_END_POINT}/documents`, postParams)
+        .post(`${documentServerBaseUrl}/documents`, postParams)
         .then(function(response) {
           renderAnalyzeReview(response.data);
           document.getElementById('feedback-text').classList.remove('hidden');

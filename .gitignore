@@ -2,9 +2,10 @@
 Gemfile.lock
 
 
-### Node - rollup ###
+### Node - Webpack ###
 node_modules
 package-lock.json
+.env
 
 ### Code ###
 .vscode/*
