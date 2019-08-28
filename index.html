@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +14,9 @@
 
         gtag('config', 'UA-124570982-1');
     </script>
-
+    <script>
+        const documentServerBaseUrl = "{{ site.env.DOCUMENT_END_POINT }}";
+    </script>
 
     <!--Metas-->
     <meta charset="UTF-8">
@@ -851,16 +856,16 @@
                 <div class="row ">
 
                     <div class="footer-top  clearfix ">
-                        <div class="footer-top-content clearfix ">
+                        <!-- <div class="footer-top-content clearfix ">
                             <div class="col-md-6 col-xs-12 col-sm-6 ">
 
                                 <h1>Get Started</h1>
 
                             </div>
 
-                            <div class="col-md-6 col-xs-12 col-sm-6 ">
-                                <!-- Newsletter -->
-                                <div class="newsletter-block ">
+                            <div class="col-md-6 col-xs-12 col-sm-6 "> -->
+                        <!-- Newsletter -->
+                        <!-- <div class="newsletter-block ">
 
 
                                     <div class="subscribe-form ">
@@ -877,10 +882,38 @@
 
                                         </form>
                                     </div>
-                                </div>
-                                <!-- Newsletter -->
+                                </div> -->
+                        <!-- Newsletter -->
+                        <!-- 
                             </div>
 
+                        </div> -->
+
+                        <div class="footer-center-content clearfix ">
+                            <div class="container ">
+                                <div class="row-centered">
+                                    <form class="form " id="analyze-form">
+                                        <div class="col-centered col-xs-12">
+                                            <textarea id="review-textarea" name="review" class="review-text" rows="6"
+                                                placeholder="Copy and paste a review or enter you own random feedback for analysis to see how it works..."></textarea>
+                                        </div>
+                                        <div class="col-centered col-xs-12">
+                                            <button type="submit" class="btn btn-color btn-analyze">Analyze
+                                                Data</button>
+                                        </div>
+                                        <div class="col-centered col-xs-12">
+                                            <div class="feedback-text hidden" id="feedback-text" rows="6">
+                                                <div class="upper-part" id="upper-part-feedback"></div>
+                                                <div class="bottom-part">
+                                                    <p class="positive">Positive</p>
+                                                    <p class="negative">Negative</p>
+                                                    <p class="aspect">Aspect</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="footer-bottom-content clearfix ">
@@ -1135,4 +1168,5 @@
     <script src="assets/js/axios.min.js "></script>
     <!-- Main js -->
     <script src="assets/js/main.js "></script>
+    <script src="assets/js/review-service.js "></script>
 </body>
