@@ -24,8 +24,3 @@ markdown: kramdown
 sass:
   sass_dir: _sass
   style: compressed
-
-contentful:
-  spaces:
-    - example:
-        document: ENV_DOCUMENT_END_POINT
