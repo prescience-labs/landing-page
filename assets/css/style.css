@@ -1310,6 +1310,7 @@ footer p.sucess-message {
   background-color: #000000;
   border: solid 1px #000000;
   color: #ffffff;
+  resize: none;
 }
 
 .footer-center-content .feedback-text {
