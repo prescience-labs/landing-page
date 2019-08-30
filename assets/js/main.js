@@ -168,3 +168,125 @@ $(document).ready(function($) {
     }
   }
 });
+
+/*
+  ----------------------------------------
+      Login to app
+  --------------------------------------
+*/
+document.getElementById('login-form').addEventListener('submit', event => {
+  event.preventDefault();
+  let hasError = false;
+  const email = event.target[0];
+  const password = event.target[1];
+  email.offsetParent.classList.remove('has-error');
+  password.offsetParent.classList.remove('has-error');
+
+  if (email.value === '') {
+    email.offsetParent.classList.add('has-error');
+    hasError = true;
+  }
+
+  if (password.value === '') {
+    password.offsetParent.classList.add('has-error');
+    hasError = true;
+  }
+
+  if (hasError) {
+    return;
+  }
+
+  const postParams = Object.assign(
+    {},
+    {
+      email: email.value,
+      password: password.value,
+    },
+  );
+
+  axios
+    .post('https://prescience-mailer.herokuapp.com/auth/login', postParams)
+    .then(function(response) {
+      if (response.data.token) {
+        window
+          .open(
+            'https://flamboyant-goldberg-663290.netlify.com/overview',
+            '_self',
+          )
+          .close();
+      }
+    })
+    .catch(function(error) {
+      email.offsetParent.classList.add('has-error');
+      password.offsetParent.classList.add('has-error');
+    });
+});
+
+/*
+  ----------------------------------------
+      Sing in to app
+  --------------------------------------
+*/
+document.getElementById('sing-in-form').addEventListener('submit', event => {
+  event.preventDefault();
+
+  let hasError = false;
+  const email = event.target[0];
+  const password1 = event.target[1];
+  const password2 = event.target[2];
+
+  email.offsetParent.classList.remove('has-error');
+  password1.offsetParent.classList.remove('has-error');
+  password2.offsetParent.classList.remove('has-error');
+
+  if (email.value === '') {
+    email.offsetParent.classList.add('has-error');
+    hasError = true;
+  }
+
+  if (password1.value === '') {
+    password1.offsetParent.classList.add('has-error');
+    hasError = true;
+  }
+
+  if (password2.value === '') {
+    password2.offsetParent.classList.add('has-error');
+    hasError = true;
+  }
+
+  if (hasError) {
+    return;
+  }
+
+  if (password1.value !== password2.value) {
+    password1.offsetParent.classList.add('has-error');
+    password2.offsetParent.classList.add('has-error');
+    return;
+  }
+
+  const postParams = Object.assign(
+    {},
+    {
+      email: email.value,
+      password: password1.value,
+    },
+  );
+
+  axios
+    .post('https://prescience-mailer.herokuapp.com/auth/register', postParams)
+    .then(function(response) {
+      if (response.data.success) {
+        window
+          .open(
+            'https://flamboyant-goldberg-663290.netlify.com/overview',
+            '_self',
+          )
+          .close();
+      }
+    })
+    .catch(function(error) {
+      email.offsetParent.classList.add('has-error');
+      password1.offsetParent.classList.add('has-error');
+      password2.offsetParent.classList.add('has-error');
+    });
+});

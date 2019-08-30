@@ -32,6 +32,10 @@ Fonts
 General Styles
 ----------------------------------------*/
 
+#review-textarea {
+  resize: none;
+}
+
 body {
   font-family: 'Hk_Groteskregular', sans-serif;
   font-size: 15px;
@@ -1602,6 +1606,15 @@ Modal
   -ms-transition: 0.25s all ease;
   -o-transition: 0.25s all ease;
   transition: 0.25s all ease;
+}
+
+.login-modal .has-error input[type="email"],
+.login-modal .has-error input[type="password"] {
+  border: 1px solid #c00812;
+}
+
+.login-modal .has-error i {
+  color: #c00812;
 }
 
 /*----------------------------------------
