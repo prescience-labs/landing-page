@@ -95,7 +95,7 @@ function renderAnalyzeReview(reviewResult) {
 /**
  * Function to listen to submissions of example reviews
  */
-function analyzeDataSubmitListener() {
+function reviewService() {
   document
     .getElementById('analyze-form')
     .addEventListener('submit', function(event) {
@@ -134,4 +134,4 @@ function analyzeDataSubmitListener() {
     });
 }
 
-analyzeDataSubmitListener();
+export default reviewService;

@@ -1,7 +1,7 @@
 /**
- * Login to admin panel function
+ * Function to login to the admin panel
  */
-function loginFunctionality() {
+function loginService() {
   document.getElementById('login-form').addEventListener('submit', event => {
     event.preventDefault();
     let hasError = false;
@@ -42,8 +42,9 @@ function loginFunctionality() {
       .catch(function(error) {
         email.offsetParent.classList.add('has-error');
         password.offsetParent.classList.add('has-error');
+        throw new Error(error);
       });
   });
 }
 
-loginFunctionality();
+export default loginService;
