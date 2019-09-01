@@ -32,6 +32,10 @@ Fonts
 General Styles
 ----------------------------------------*/
 
+#review-textarea {
+  resize: none;
+}
+
 body {
   font-family: 'Hk_Groteskregular', sans-serif;
   font-size: 15px;
