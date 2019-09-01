@@ -1,7 +1,7 @@
 /**
  * Function to login to the admin panel
  */
-function loginService() {
+function loginService(emailIsValid) {
   document.getElementById('login-form').addEventListener('submit', event => {
     event.preventDefault();
     let hasError = false;
@@ -11,6 +11,11 @@ function loginService() {
     password.offsetParent.classList.remove('has-error');
 
     if (email.value === '') {
+      email.offsetParent.classList.add('has-error');
+      hasError = true;
+    }
+
+    if (!emailIsValid(email.value)) {
       email.offsetParent.classList.add('has-error');
       hasError = true;
     }
@@ -32,19 +37,25 @@ function loginService() {
       },
     );
 
-    axios
-      .post(`${authServerBaseUrl}/auth/login`, postParams)
-      .then(function(response) {
-        if (response.data.token) {
-          window.open(`${adminPaneAuthUrl}`, '_self').close();
-        }
-      })
-      .catch(function(error) {
-        email.offsetParent.classList.add('has-error');
-        password.offsetParent.classList.add('has-error');
-        throw new Error(error);
-      });
+    authCall(postParams, email, password);
   });
+}
+
+export function authCall(credentialsObject, email, password) {
+  axios
+    .post(`${authServerBaseUrl}/auth/token`, credentialsObject)
+    .then(function(response) {
+      if (response.data.token) {
+        window
+          .open(`${adminPaneAuthUrl}?token=${response.data.token}`, '_self')
+          .close();
+      }
+    })
+    .catch(function(error) {
+      email.offsetParent.classList.add('has-error');
+      password.offsetParent.classList.add('has-error');
+      throw new Error(error);
+    });
 }
 
 export default loginService;
