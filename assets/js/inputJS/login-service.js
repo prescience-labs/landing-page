@@ -47,7 +47,7 @@ export function authCall(credentialsObject, email, password) {
     .then(function(response) {
       if (response.data.token) {
         window
-          .open(`${adminPaneAuthUrl}?token=${response.data.token}`, '_self')
+          .open(`${adminPaneAuthUrl}/${response.data.token}`, '_self')
           .close();
       }
     })

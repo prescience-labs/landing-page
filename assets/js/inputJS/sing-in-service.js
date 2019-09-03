@@ -57,7 +57,7 @@ function singInService(emailIsValid) {
       .then(function(response) {
         if (response.data.id) {
           window
-            .open(`${adminPaneAuthUrl}?id=${response.data.id}`, '_self')
+            .open(`${adminPaneAuthUrl}/false/${response.data.id}`, '_self')
             .close();
         }
       })
