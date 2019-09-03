@@ -1,3 +1,5 @@
+import { authCall } from './login-service';
+
 /**
  * Function for sing in to the admin panel
  */
@@ -56,9 +58,7 @@ function singInService(emailIsValid) {
       .post(`${authServerBaseUrl}/users`, postParams)
       .then(function(response) {
         if (response.data.id) {
-          window
-            .open(`${adminPaneAuthUrl}/false/${response.data.id}`, '_self')
-            .close();
+          authCall(postParams, email, password1);
         }
       })
       .catch(function(error) {
