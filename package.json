@@ -2,7 +2,6 @@
     "name": "landing-page-data-int",
     "version": "1.0.0",
     "description": "",
-    "license": "",
     "devDependencies": {
         "dotenv-webpack": "^1.7.0",
         "webpack": "^4.39.3",
