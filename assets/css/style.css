@@ -1098,6 +1098,18 @@ Footer
   line-height: 60px;
 }
 
+.btn.btn-medium:hover,
+.btn.btn-medium:focus,
+.btn.btn-medium:active {
+  color: white;
+  background-color: #6a6a6a;
+  border-color: #6a6a6a;
+}
+
+.btn.btn-medium > img {
+  height: 100%;
+}
+
 .btn.btn-facebook:hover,
 .btn.btn-facebook:focus,
 .btn.btn-facebook:active {
